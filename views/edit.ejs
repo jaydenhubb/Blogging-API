@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+           body {
+       background: #eee;
+       font-family: "Roboto";
+       color: #444;
+       max-width: 1200px;
+       margin: auto;
+       padding: 10px;
+   }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 120px;
+}
+nav ul {
+    display: flex;
+    align-items: center;
+}
+nav li {
+    margin-left: 20px;
+}
+nav li a {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8em;
+    display: block;
+    padding: 10px 16px;
+    letter-spacing: 2px;
+}
+   ul {
+       list-style-type: none;
+   }
+   a {
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    color: #444;
+   }
+   .form-create {
+       max-width: 960px;
+   }
+   .create {
+       display: block;
+       margin: 16px 0;
+       padding: 6px 10px;
+       width: 30%;
+       border: 1px solid #ddd;
+       font-family: "Roboto";
+   }
+   .blog-body {
+       display: block;
+       margin: 16px 0;
+       padding: 6px 10px;
+       width: 100%;
+       border: 1px solid #ddd;
+       font-family: "Roboto";
+       min-height: 200px;
+   }
+   .desc {
+       width: 50%;
+       min-height: 80px;
+   }
+/* for some reason, couldnt access my css file in my public folder */
+    </style>
+    <title>edit</title>
+  </head>
+  <body>
+    <nav>
+      <h2><a href="/">Jay Blog</a></h2>
+      <ul>
+        <li><a href="/logout">log out</a></li>
+      </ul>
+    </nav>
+    <h1>Edit Blog</h1>
+    <p>
+        Select a state 
+    </p>
+      
+    State:
+    <input type="radio" name="state" value="draft">draft
+    <input type="radio" name="state" value="published">published
+      
+  
+      
+    
+      
+    <br>
+
+    <form class="form-create">
+      <input
+        type="text"
+        name="title"
+        class="create"
+        required
+        placeholder="Blog title"
+        value="<%=blog.title%>"
+      />
+      <textarea
+        name="desc"
+        class="desc blog-body"
+        required
+        placeholder="Brief description"
+      ><%=blog.desc%></textarea>
+      <textarea
+        name="body"
+        class="blog-body"
+        required
+        placeholder="Blog body"
+      ><%=blog.body%></textarea>
+      <input type="text" name="tag" value="<%=blog.tag%>" class="create" required placeholder="tag" />
+      <p>Author: <strong id="author"><%=user.firstName%></strong></p>
+      <p id="blogId" style="display:none"><%=blog._id%></p>
+      
+      <button>Update</button>
+    </form>
+
+    <script>
+      const form = document.querySelector('form')
+      const blogId = document.querySelector('#blogId').textContent
+      const author = document.getElementById("author").textContent;
+      const btn = document.getElementById("btn")
+
+      form.addEventListener('submit', async(e)=>{
+        e.preventDefault()
+        const title = form.title.value;
+        const desc = form.desc.value;
+        const body = form.body.value;
+        const tag = form.tag.value;
+        const state = document.querySelector('input[name ="state"]:checked').value
+        try{
+            const res = await fetch(`/blogs/${blogId}`, {
+                method: 'PATCH',
+                body: JSON.stringify({ title, desc, body, author, tag, state}),
+                headers: { "Content-Type": "application/json" }
+            })
+        }catch(err){
+            console.log(err);
+        }
+        location.assign('/')
+      })
+    </script>
+
+    <%- include('partials/footer'); -%>
+ 

@@ -1,0 +1,29 @@
+<%-include('partials/header') -%>
+
+<ul>
+  <%if (user){%>
+  <li>
+    <a href="/sblog/<%=user.firstName%>?state=published">My Published blogs</a>
+  </li>
+  <li><a href="/sblog/<%=user.firstName%>?state=draft">My Draft blogs</a></li>
+  
+  <%}%>
+</ul>
+<div class="each-blog">
+  <%blogs.forEach((blog)=>{%>
+  <h5>Title: <%=blog.title%></h5>
+  <div>Brief description: <%=blog.desc%></div>
+  <p><%=blog.body%></p>
+  <p><a href="/blogs/single/<%=blog.id%>"><strong><i>Get this blog</i></strong></a></p>
+  <p>Author: <i><%=blog.author%></i></p>
+    <p>Get all <%=blog.author%>'s published blogs <a href="/blogs/<%=blog.author%>"><strong><i>here</i></strong></a></p>   
+    <p>tag(s): <%=blog.tag%></p>
+    <p>reading time: <%=blog.reading_time%>mins</p>
+    <p>views: <%=blog.read_count%></p>
+  
+
+  <hr />
+  <%})%>
+</div>
+
+<%- include('partials/footer'); -%>

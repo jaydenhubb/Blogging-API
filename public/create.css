@@ -1,0 +1,69 @@
+   body {
+       background: #eee;
+       font-family: "Roboto";
+       color: #444;
+       max-width: 1200px;
+       margin: auto;
+       padding: 10px;
+   }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 120px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav li a {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8em;
+    display: block;
+    padding: 10px 16px;
+    letter-spacing: 2px;
+}
+   ul {
+       list-style-type: none;
+   }
+
+   a {
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    color: #444;
+   }
+
+   .form-create {
+       max-width: 960px;
+   }
+
+   .create {
+       display: block;
+       margin: 16px 0;
+       padding: 6px 10px;
+       width: 30%;
+       border: 1px solid #ddd;
+       font-family: "Roboto";
+   }
+
+   .blog-body {
+       display: block;
+       margin: 16px 0;
+       padding: 6px 10px;
+       width: 100%;
+       border: 1px solid #ddd;
+       font-family: "Roboto";
+       min-height: 200px;
+   }
+
+   .desc {
+       width: 50%;
+       min-height: 80px;
+   }
