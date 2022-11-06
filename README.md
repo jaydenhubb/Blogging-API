@@ -23,6 +23,7 @@ it's a fullstack app albeit one that still requires a few touches on the fronten
 * Only authenticated users can create a blog.
 * creating a blog with an already existing title will fail.
 * All newly created blogs are automatically saved in a ***"draft"*** state unless otherwise stated by the author during creation.
+* Authenticated users can access their published blogs by clicking ***my published blog*** and access their draft blogs by clicking ***my draft blog***. 
 * Draft stated blogs are not displayed on the homepage but authenticated users can acces their own personal draft blogs.
 * Authenticated users can update or delete their own person blogs.
 * Unauthenticated users cannot update, delete or create blogs.
