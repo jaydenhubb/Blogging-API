@@ -7,7 +7,7 @@ it's a fullstack app albeit one that still requires a few touches on the fronten
 
 
 # Base URL
-[jerry.com](google.com)
+[blog.com](https://fair-plum-sturgeon-cape.cyclic.app/)
 
 ## Navigating the live app
 * The home page automacally makes an api call to the server which provides all ***published*** blogs in the database.
