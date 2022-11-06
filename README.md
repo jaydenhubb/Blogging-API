@@ -6,7 +6,7 @@ This is an Api for a blog app
 it's a fullstack app albeit one that still requires a few touches on the frontend since my focus was basically the backend api.***
 
 
-# Base URL
+# Live demo
 [blog.com](https://fair-plum-sturgeon-cape.cyclic.app/)
 
 ## Navigating the live app
