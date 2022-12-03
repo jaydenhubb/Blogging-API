@@ -1,4 +1,4 @@
-const Blog = require("../models/blogModel");
+const moment = require('moment')
 const BlogModel = require("../models/blogModel");
 
 const getAllBlogs = async (req, res) => {
@@ -38,6 +38,7 @@ const createBlog = async (req, res) => {
   try {
     const { title, desc, author, tag, body, state } = req.body;
     const reading_time = (body.trim().split(" ").length / 225).toFixed(1);
+    const created_At = moment().toDate()
     const blogdets = {
       title,
       desc,
@@ -46,6 +47,7 @@ const createBlog = async (req, res) => {
       body,
       reading_time,
       state,
+      created_At
     };
     const blog = await BlogModel.create(blogdets);
     res.status(200).json({ blog });

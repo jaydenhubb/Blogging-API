@@ -5,7 +5,7 @@ const blogRoute = require("./routes/blogRoute");
 const authRoute = require("./routes/authRoutes");
 const homeRoute = require("./routes/homeroute");
 const create = require("./routes/create");
-const { confirmUser, requireAuth } = require("./middlewares/requireAuth");
+const { confirmUser } = require("./middlewares/requireAuth");
 const sblog = require("./routes/singleBolgRoute");
 const editRoute = require("./routes/editRoute");
 
